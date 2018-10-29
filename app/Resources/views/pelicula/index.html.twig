@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Peliculas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Duracion</th>
+                <th>Sipnosis</th>
+                <th>Estreno</th>
+                <th>Calidad</th>
+                <th>Genero</th>
+                <th>Usuarioid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pelicula in peliculas %}
+            <tr>
+                <td><a href="{{ path('pelicula_show', { 'id': pelicula.id }) }}">{{ pelicula.id }}</a></td>
+                <td>{{ pelicula.nombre }}</td>
+                <td>{{ pelicula.año }}</td>
+                <td>{{ pelicula.duracion }}</td>
+                <td>{{ pelicula.sipnosis }}</td>
+                <td>{{ pelicula.estreno }}</td>
+                <td>{{ pelicula.calidad }}</td>
+                <td>{{ pelicula.genero }}</td>
+                <td>{{ pelicula.usuarioId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pelicula_show', { 'id': pelicula.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pelicula_edit', { 'id': pelicula.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pelicula_new') }}">Create a new pelicula</a>
+        </li>
+    </ul>
+{% endblock %}

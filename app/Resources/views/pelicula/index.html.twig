@@ -8,9 +8,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Año</th>
+                <th>fechaLanzamiento</th>
                 <th>Duracion</th>
-                <th>Sipnosis</th>
+                <th>sinopsis</th>
                 <th>Estreno</th>
                 <th>Calidad</th>
                 <th>Genero</th>
@@ -23,9 +23,9 @@
             <tr>
                 <td><a href="{{ path('pelicula_show', { 'id': pelicula.id }) }}">{{ pelicula.id }}</a></td>
                 <td>{{ pelicula.nombre }}</td>
-                <td>{{ pelicula.año }}</td>
+                <td>{{pelicula.fechaLanzamiento|date("d/m/Y")}}</td>
                 <td>{{ pelicula.duracion }}</td>
-                <td>{{ pelicula.sipnosis }}</td>
+                <td>{{ pelicula.sinopsis }}</td>
                 <td>{{ pelicula.estreno }}</td>
                 <td>{{ pelicula.calidad }}</td>
                 <td>{{ pelicula.genero }}</td>

@@ -14,16 +14,16 @@
                 <td>{{ pelicula.nombre }}</td>
             </tr>
             <tr>
-                <th>Año</th>
-                <td>{{ pelicula.año }}</td>
+                <th>fechaLanzamiento</th>
+                <td>{{pelicula.fechaLanzamiento|date("d/m/Y")}}</td>
             </tr>
             <tr>
                 <th>Duracion</th>
                 <td>{{ pelicula.duracion }}</td>
             </tr>
             <tr>
-                <th>Sipnosis</th>
-                <td>{{ pelicula.sipnosis }}</td>
+                <th>sinopsis</th>
+                <td>{{ pelicula.sinopsis }}</td>
             </tr>
             <tr>
                 <th>Estreno</th>
@@ -52,7 +52,7 @@
             <a href="{{ path('pelicula_edit', { 'id': pelicula.id }) }}">Edit</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
+            {{ form_start(delete_form,{'method':'DELETE'}) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>

@@ -90,9 +90,9 @@ class pelicula
     /**
      * @var string
      *
-     * @ORM\Column(name="fecha_lanzamiento", type="date")
+     * @ORM\Column(name="fechaLanzamiento", type="date")
      */
-    private $fecha_lanzamiento;
+    private $fechaLanzamiento;
 
     /**
      * @var string
@@ -104,9 +104,9 @@ class pelicula
     /**
      * @var string
      *
-     * @ORM\Column(name="sipnosis", type="string", length=600)
+     * @ORM\Column(name="sinopsis", type="string", length=600)
      */
-    private $sipnosis;
+    private $sinopsis;
 
     /**
      * @var string
@@ -173,27 +173,31 @@ class pelicula
     }
 
     /**
-     * Set fecha_lanzamiento
+     * Set fechaLanzamiento
      *
-     * @param string $fecha_lanzamiento
+     * @param string $fechaLanzamiento
      *
      * @return pelicula
      */
-    public function setFechaLanzamiento($fecha_lanzamiento)
+    public function setFechaLanzamiento($fechaLanzamiento)
     {
-        $this->fecha_lanzamiento = $fecha_lanzamiento;
+        $this->fechaLanzamiento = $fechaLanzamiento;
 
         return $this;
     }
 
     /**
-     * Get fecha_lanzamiento
+     * Get fechaLanzamiento
      *
      * @return string
      */
     public function getFechaLanzamiento()
     {
-        return $this->fecha_lanzamiento;
+        return $this->fechaLanzamiento;
+    }
+
+    public function __toString(){
+        return $this->fechaLanzamiento;
     }
 
     /**
@@ -221,27 +225,27 @@ class pelicula
     }
 
     /**
-     * Set sipnosis
+     * Set sinopsis
      *
-     * @param string $sipnosis
+     * @param string $sinopsis
      *
      * @return pelicula
      */
-    public function setSipnosis($sipnosis)
+    public function setsinopsis($sinopsis)
     {
-        $this->sipnosis = $sipnosis;
+        $this->sinopsis = $sinopsis;
 
         return $this;
     }
 
     /**
-     * Get sipnosis
+     * Get sinopsis
      *
      * @return string
      */
-    public function getSipnosis()
+    public function getsinopsis()
     {
-        return $this->sipnosis;
+        return $this->sinopsis;
     }
 
     /**

@@ -27,6 +27,8 @@ class peliculaController extends Controller
 
         $peliculas = $em->getRepository('AppBundle:pelicula')->findAll();
 
+        
+
         return $this->render('pelicula/index.html.twig', array(
             'peliculas' => $peliculas,
         ));
@@ -102,7 +104,7 @@ class peliculaController extends Controller
     /**
      * Deletes a pelicula entity.
      *
-     * @Route("/{id}", name="pelicula_delete")
+     * @Route("pelicula/{id}", name="pelicula_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, pelicula $pelicula)

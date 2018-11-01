@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use AppBundle\Entity\usuario;
 
 class peliculaType extends AbstractType
 {
@@ -15,17 +16,18 @@ class peliculaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //$usuario = new usuario();
         $builder->add('nombre')
-                ->add('fecha_lanzamiento')
+                ->add('fechaLanzamiento')
                 ->add('duracion')
-                ->add('sipnosis')
+                ->add('sinopsis')
                 ->add('estreno')
                 ->add('calidad')
                 ->add('genero')
-                ->add('usuario_id', EntityType::class, array(
+                ->add('usuario', EntityType::class, array(
                 'class' => 'AppBundle:usuario',
                 'choice_label' => 'username',
-                'multiple' => TRUE));
+                'multiple' => false));
 
     }/**
      * {@inheritdoc}

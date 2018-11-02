@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Form\UType;
+use AppBundle\Form\usuarioType;
 use AppBundle\Entity\usuario;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ class usuarioController extends Controller
     {
         // contruyendo el formulario
         $usuario = new usuario();
-        $form = $this->createForm(usuarioType::class, $usuario);
+        $form = $this->createForm('AppBundle\Form\usuarioType', $usuario);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -39,7 +39,7 @@ class usuarioController extends Controller
         }
 
         return $this->render(
-            'registration/register.html.twig',
+            'usuario/registro.html.twig',
             array('form' => $form->createView())
         );
     }

@@ -50,4 +50,9 @@
             <a href="{{ path('pelicula_new') }}">Create a new pelicula</a>
         </li>
     </ul>
+    {% for msg in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ msg }}
+    </div>
+    {% endfor %}
 {% endblock %}

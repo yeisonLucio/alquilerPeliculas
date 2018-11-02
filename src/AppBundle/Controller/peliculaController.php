@@ -27,7 +27,7 @@ class peliculaController extends Controller
 
         $peliculas = $em->getRepository('AppBundle:pelicula')->findAll();
 
-        
+
 
         return $this->render('pelicula/index.html.twig', array(
             'peliculas' => $peliculas,
@@ -41,8 +41,8 @@ class peliculaController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
-    {   
-      
+    {
+
         $pelicula = new Pelicula();
         $form = $this->createForm('AppBundle\Form\peliculaType', $pelicula);
         $form->handleRequest($request);
@@ -51,7 +51,7 @@ class peliculaController extends Controller
             $em->persist($pelicula);
             $em->flush();
 
-            
+
 
             return $this->redirectToRoute('pelicula_show', array('id' => $pelicula->getId()));
         }
@@ -119,7 +119,7 @@ class peliculaController extends Controller
             $em->remove($pelicula);
             $em->flush();
             $this->addFlash(
-                'notice',
+                'success',
                 'Pelicula eliminada!'
             );
         }

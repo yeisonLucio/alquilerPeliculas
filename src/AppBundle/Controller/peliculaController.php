@@ -51,6 +51,8 @@ class peliculaController extends Controller
             $em->persist($pelicula);
             $em->flush();
 
+            
+
             return $this->redirectToRoute('pelicula_show', array('id' => $pelicula->getId()));
         }
 
@@ -116,6 +118,10 @@ class peliculaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($pelicula);
             $em->flush();
+            $this->addFlash(
+                'notice',
+                'Pelicula eliminada!'
+            );
         }
 
         return $this->redirectToRoute('pelicula_index');

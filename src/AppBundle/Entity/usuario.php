@@ -3,14 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * usuario
  *
  * @ORM\Table(name="usuario")
+ * @UniqueEntity(fields="email", message="El Email ingresado ya existe")
+ * @UniqueEntity(fields="username", message="el nombre de usuario ingresado ya existe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\usuarioRepository")
  */
-class usuario
+class usuario implements UserInterface, \Serializable
 {
     //..Relaciones..
 
@@ -63,21 +68,30 @@ class usuario
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255)
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $username;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=64, unique=true)
      */
     private $password;
+
+     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -140,6 +154,16 @@ class usuario
         return $this->password;
     }
 
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
     /**
      * Set email
      *
@@ -163,4 +187,44 @@ class usuario
     {
         return $this->email;
     }
+
+    public function getSalt()
+    {
+       
+        return null;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
 }

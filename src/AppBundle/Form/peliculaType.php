@@ -23,11 +23,8 @@ class peliculaType extends AbstractType
                 ->add('sinopsis')
                 ->add('estreno')
                 ->add('calidad')
-                ->add('genero')
-                ->add('usuario', EntityType::class, array(
-                'class' => 'AppBundle:usuario',
-                'choice_label' => 'username',
-                'multiple' => false));
+                ->add('genero');
+                
 
     }/**
      * {@inheritdoc}

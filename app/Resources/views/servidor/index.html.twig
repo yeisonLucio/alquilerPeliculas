@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Servidors list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Urlpelicula</th>
+                <th>Peliculaid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for servidor in servidors %}
+            <tr>
+                <td><a href="{{ path('servidor_show', { 'id': servidor.id }) }}">{{ servidor.id }}</a></td>
+                <td>{{ servidor.nombre }}</td>
+                <td>{{ servidor.urlPelicula }}</td>
+                <td>{{ servidor.peliculaId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('servidor_show', { 'id': servidor.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('servidor_edit', { 'id': servidor.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('servidor_new') }}">Create a new servidor</a>
+        </li>
+    </ul>
+{% endblock %}

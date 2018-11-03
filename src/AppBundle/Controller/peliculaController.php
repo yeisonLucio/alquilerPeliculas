@@ -22,7 +22,7 @@ class peliculaController extends Controller
      * @Method("GET")
      */
     public function indexAction()
-    {
+    {        
         $em = $this->getDoctrine()->getManager();
 
         $peliculas = $em->getRepository('AppBundle:pelicula')->findAll();
@@ -44,9 +44,12 @@ class peliculaController extends Controller
     {
 
         $pelicula = new Pelicula();
+        $usuario = new usuario();
         $form = $this->createForm('AppBundle\Form\peliculaType', $pelicula);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $usuario = $this->getUser(); 
+            $pelicula->setUsuario($usuario);
             $em = $this->getDoctrine()->getManager();
             $em->persist($pelicula);
             $em->flush();

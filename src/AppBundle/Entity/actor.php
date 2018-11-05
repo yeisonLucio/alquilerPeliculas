@@ -63,12 +63,7 @@ class actor
      */
     private $personaje;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="pelicula_id", type="integer")
-     */
-    private $peliculaId;
+    
 
 
     /**
@@ -129,27 +124,4 @@ class actor
         return $this->personaje;
     }
 
-    /**
-     * Set peliculaId
-     *
-     * @param integer $peliculaId
-     *
-     * @return actor
-     */
-    public function setPeliculaId($peliculaId)
-    {
-        $this->peliculaId = $peliculaId;
-
-        return $this;
-    }
-
-    /**
-     * Get peliculaId
-     *
-     * @return int
-     */
-    public function getPeliculaId()
-    {
-        return $this->peliculaId;
-    }
 }

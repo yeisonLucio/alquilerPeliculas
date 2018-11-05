@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pelicula_actors list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Peliculaid</th>
+                <th>Actorid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pelicula_actor in pelicula_actors %}
+            <tr>
+                <td><a href="{{ path('pelicula_actor_show', { 'id': pelicula_actor.id }) }}">{{ pelicula_actor.id }}</a></td>
+                <td>{{ pelicula_actor.peliculaId }}</td>
+                <td>{{ pelicula_actor.actorId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('pelicula_actor_show', { 'id': pelicula_actor.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('pelicula_actor_edit', { 'id': pelicula_actor.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pelicula_actor_new') }}">Create a new pelicula_actor</a>
+        </li>
+    </ul>
+{% endblock %}

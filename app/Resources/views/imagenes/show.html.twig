@@ -1,35 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Servidor</h1>
+    <h1>imagenes</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ servidor.id }}</td>
+                <td>{{ imagenes.id }}</td>
             </tr>
             <tr>
                 <th>Nombre</th>
-                <td>{{ servidor.nombre }}</td>
+                <td>{{ imagenes.nombre }}</td>
             </tr>
             <tr>
-                <th>Urlpelicula</th>
-                <td>{{ servidor.urlPelicula }}</td>
+                <th>Ruta</th>
+                <td>{{ imagenes.ruta }}</td>
             </tr>
             <tr>
                 <th>Peliculaid</th>
-                <td>{{ servidor.peliculaId }}</td>
+                <td>{{ imagenes.peliculaId }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('servidor_index') }}">Back to the list</a>
+            <a href="{{ path('imagenes_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('servidor_edit', { 'id': servidor.id }) }}">Edit</a>
+            <a href="{{ path('imagenes_edit', { 'id': imagenes.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pelicula_actor</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pelicula_actor.id }}</td>
+            </tr>
+            <tr>
+                <th>Peliculaid</th>
+                <td>{{ pelicula_actor.peliculaId }}</td>
+            </tr>
+            <tr>
+                <th>Actorid</th>
+                <td>{{ pelicula_actor.actorId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('pelicula_actor_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('pelicula_actor_edit', { 'id': pelicula_actor.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

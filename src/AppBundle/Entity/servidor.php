@@ -18,7 +18,7 @@ class servidor
 
         /**
         * @ORM\ManyToOne(targetEntity="pelicula", inversedBy="servidor")
-        * @ORM\JoinColumn(name="pelicula_id", referencedColumnName="id")
+        * @ORM\JoinColumn(name="peliculaId", referencedColumnName="id")
         */
         private $pelicula;
 
@@ -48,7 +48,7 @@ class servidor
     /**
      * @var int
      *
-     * @ORM\Column(name="pelicula_id", type="integer")
+     * @ORM\Column(name="peliculaId", type="integer")
      */
     private $peliculaId;
 
@@ -133,5 +133,29 @@ class servidor
     public function getPeliculaId()
     {
         return $this->peliculaId;
+    }
+
+    /**
+     * Set pelicula
+     *
+     * @param \AppBundle\Entity\pelicula $pelicula
+     *
+     * @return servidor
+     */
+    public function setPelicula(\AppBundle\Entity\pelicula $pelicula = null)
+    {
+        $this->pelicula = $pelicula;
+
+        return $this;
+    }
+
+    /**
+     * Get pelicula
+     *
+     * @return \AppBundle\Entity\pelicula
+     */
+    public function getPelicula()
+    {
+        return $this->pelicula;
     }
 }

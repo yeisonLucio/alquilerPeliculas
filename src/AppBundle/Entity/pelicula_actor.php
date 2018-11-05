@@ -111,4 +111,51 @@ class pelicula_actor
     {
         return $this->actorId;
     }
+    /**
+     * Set actor
+     *
+     * @param integer $actor
+     *
+     * @return pelicula_actor
+     */
+    public function setActor($actor)
+    {
+        $this->actor = $actor;
+
+        return $this;
+    }
+
+    /**
+     * Get actor
+     *
+     * @return int
+     */
+    public function getActor()
+    {
+        return $this->actor;
+    }
+
+     /**
+     * Set pelicula
+     *
+     * @param integer $pelicula
+     *
+     * @return pelicula_actor
+     */
+    public function setPelicula($pelicula)
+    {
+        $this->pelicula = $pelicula;
+
+        return $this;
+    }
+
+    /**
+     * Get pelicula
+     *
+     * @return int
+     */
+    public function getPelicula()
+    {
+        return $this->pelicula;
+    }
 }

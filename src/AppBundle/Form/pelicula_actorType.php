@@ -7,26 +7,28 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class servidorType extends AbstractType
+class pelicula_actorType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')
-                ->add('urlPelicula')
-                ->add('pelicula', EntityType::class, array(
-                    'class' => 'AppBundle:pelicula',
-                    'choice_label' => 'nombre',
-                    'multiple' => false));
+        $builder->add('pelicula', EntityType::class, array(
+            'class' => 'AppBundle:pelicula',
+            'choice_label' => 'nombre',
+            'multiple' => false))
+        ->add('actor', EntityType::class, array(
+            'class' => 'AppBundle:actor',
+            'choice_label' => 'nombre',
+            'multiple' => false));
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\servidor'
+            'data_class' => 'AppBundle\Entity\pelicula_actor'
         ));
     }
 
@@ -35,7 +37,7 @@ class servidorType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_servidor';
+        return 'appbundle_pelicula_actor';
     }
 
 

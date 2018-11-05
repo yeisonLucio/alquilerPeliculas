@@ -135,4 +135,27 @@ class imagenes
     {
         return $this->peliculaId;
     }
+    /**
+     * Set pelicula
+     *
+     * @param integer $pelicula
+     *
+     * @return imagenes
+     */
+    public function setPelicula($pelicula)
+    {
+        $this->pelicula = $pelicula;
+
+        return $this;
+    }
+
+    /**
+     * Get pelicula
+     *
+     * @return int
+     */
+    public function getPelicula()
+    {
+        return $this->pelicula;
+    }
 }

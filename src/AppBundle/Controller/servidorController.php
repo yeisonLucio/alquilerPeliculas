@@ -101,7 +101,7 @@ class servidorController extends Controller
     /**
      * Deletes a servidor entity.
      *
-     * @Route("/{id}", name="servidor_delete")
+     * @Route("servidor/{id}", name="servidor_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, servidor $servidor)
@@ -113,6 +113,10 @@ class servidorController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($servidor);
             $em->flush();
+            $this->addFlash(
+                'success',
+                'registro eliminado!'
+            );
         }
 
         return $this->redirectToRoute('servidor_index');

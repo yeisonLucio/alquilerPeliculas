@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\pelicula;
 
 /**
  * peliculaRepository
@@ -10,4 +11,18 @@ namespace AppBundle\Repository;
  */
 class peliculaRepository extends \Doctrine\ORM\EntityRepository
 {
+    //Lista de las peliculas para el index principal
+    public function listarPeliculas()
+    {
+        $consulta = $this->getEntityManager()->createQuery(
+            'SELECT p.id, p.nombre, p.calidad, p.estreno,i.ruta, i.peliculaId
+            FROM AppBundle\Entity\pelicula p 
+            JOIN AppBundle\Entity\imagenes i
+            WHERE i.peliculaId=p.id
+            AND i.nombre = :nombre  
+            ORDER BY p.id DESC'
+        )->setParameter('nombre', 'img_principal');
+            $valor = $consulta->getResult();
+        return $valor;
+    }
 }

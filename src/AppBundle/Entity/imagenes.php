@@ -18,7 +18,7 @@ class imagenes
 
            /**
            * @ORM\ManyToOne(targetEntity="pelicula", inversedBy="imagenes")
-           * @ORM\JoinColumn(name="pelicula_id", referencedColumnName="id")
+           * @ORM\JoinColumn(name="peliculaid", referencedColumnName="id")
            */
            private $pelicula;
 
@@ -49,7 +49,7 @@ class imagenes
     /**
      * @var int
      *
-     * @ORM\Column(name="pelicula_id", type="integer")
+     * @ORM\Column(name="peliculaId", type="integer")
      */
     private $peliculaId;
 

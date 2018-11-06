@@ -32,7 +32,7 @@ $hasMajorProblems = (bool) count($majorProblems);
 $hasMinorProblems = (bool) count($minorProblems);
 
 ?>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

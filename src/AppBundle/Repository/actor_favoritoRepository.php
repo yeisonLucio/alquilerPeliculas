@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class actor_favoritoRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }

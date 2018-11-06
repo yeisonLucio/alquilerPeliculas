@@ -1,0 +1,32 @@
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+  }
+  .list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+.pelicula{
+    position: relative;
+    padding-left: 2px !important;
+
+}
+
+.img_tarjeta{
+    height: 200px;
+    
+}
+
+.con_tarjeta{
+    width: 150px !important;
+    margin: 12px;    
+}
+
+.con_content{
+    margin-bottom: 0px !important;
+    
+    
+}

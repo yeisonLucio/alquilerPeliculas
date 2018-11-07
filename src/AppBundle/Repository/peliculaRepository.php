@@ -15,7 +15,7 @@ class peliculaRepository extends \Doctrine\ORM\EntityRepository
     public function listarPeliculas()
     {
         $consulta = $this->getEntityManager()->createQuery(
-            'SELECT p.id, p.nombre, p.calidad, p.estreno,i.ruta, i.peliculaId
+            'SELECT p.id, p.nombre, p.calidad, p.estreno,i.ruta, i.peliculaId, p.sinopsis
             FROM AppBundle\Entity\pelicula p 
             JOIN AppBundle\Entity\imagenes i
             WHERE i.peliculaId=p.id

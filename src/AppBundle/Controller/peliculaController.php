@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Pelicula controller.
+ * pelicula controller.
  *
  * @Route("pelicula")
  */
@@ -19,20 +19,16 @@ class peliculaController extends Controller
     /**
      * Lists all pelicula entities.
      *
-     * @Route("/", name="pelicula_index")
-     * @Method("GET")
+     * @Route("/listaPeliculas", name="listaPeliculas")
+     * @Method({"GET", "POST"})
      */
     public function indexAction()
     {        
         $em = $this->getDoctrine()->getManager();
-
-        $peliculas = $em->getRepository('AppBundle:pelicula')->findAll();
-
-
-
-        return $this->render('pelicula/index.html.twig', array(
-            'peliculas' => $peliculas,
-        ));
+        $peliculas = $em->getRepository('AppBundle:pelicula')->listarPeliculas();
+        
+    
+        return $this->render('pelicula/listaPeliculas.html.twig', array('pelicula' => $peliculas));
     }
 
     /**

@@ -13,12 +13,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $peliculas = $em->getRepository('AppBundle:pelicula')->listarPeliculas();
         
         
-        
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array('pelicula' => $peliculas));
+        return $this->render('default/index.html.twig');
     }
 }

@@ -1,61 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <h1>Pelicula</h1>
+    <div id="contenidoPelicula">
+        <div class="row">
+            <div class=" col l2 hide-on-med-only" style="background-color:blue;">1
+            </div>
+            <div class="col s12 l8 center">
+                <iframe src="//streamango.poseidonhd.io/repro/goto.php?url=b2RYVjB0V2RrbWlXcGFMWHhwREowdEtnbnBobnhORFBrY25NcFpkaW5aQ1N0cE9seUpPS3BaTFZxcnpQMjhha2hINkcyS2U0enJUS2dJaGtpNWVScDhXUzA2dVhxYUxHMktIWDF0TjJwWnVhMDhyUXlRPT0&sub=https%3A%2F%2Fstreamango.poseidonhd.io%2Fsubs%2FMile%252022%25202018%25201080p.srt";
+                    width="100%" height="450" frameborder="0" allowfullscreen>
+                </iframe>
+            </div> 
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ pelicula.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ pelicula.nombre }}</td>
-            </tr>
-            <tr>
-                <th>fechaLanzamiento</th>
-                <td>{{pelicula.fechaLanzamiento|date("d/m/Y")}}</td>
-            </tr>
-            <tr>
-                <th>Duracion</th>
-                <td>{{ pelicula.duracion }}</td>
-            </tr>
-            <tr>
-                <th>sinopsis</th>
-                <td>{{ pelicula.sinopsis }}</td>
-            </tr>
-            <tr>
-                <th>Estreno</th>
-                <td>{{ pelicula.estreno }}</td>
-            </tr>
-            <tr>
-                <th>Calidad</th>
-                <td>{{ pelicula.calidad }}</td>
-            </tr>
-            <tr>
-                <th>Genero</th>
-                <td>{{ pelicula.genero }}</td>
-            </tr>
-            <tr>
-                <th>Usuarioid</th>
-                <td>{{ pelicula.usuarioId }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('pelicula_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('pelicula_edit', { 'id': pelicula.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form,{'method':'DELETE'}) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            <div class="col l2 hide-on-small-only" style="background-color:green;">3
+            </div>
+            
+        </div>
+    </div>      
 
 {% endblock %}

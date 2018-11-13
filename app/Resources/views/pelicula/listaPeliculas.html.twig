@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+    <div id="contenedor_pelicula">
+            <ul class="list-inline">
+                <div class="row">
+                    {% for item in pelicula %}
+                    <li>
+                        <div class="col s2 m2 l2  con_tarjeta" >
+                            <div class="card con_tarjeta">
+                                <div class="card-image img_tarjeta">
+                                    <a href="javascript:ingresarPelicula({{item.id}})"><img class="img_tarjeta" src="{{ asset(item.ruta) }}"></a>
+                                </div>
+                                <div class="card-content con_content">  
+                                <div class="row con_titulo card-title activator grey-text text-darken-4 ">
+                                    <div class="col s9 m9"><span class="truncate titulo">{{item.nombre}}</span></div>
+                                    <div class="col s3 m3 waves-effect waves-block waves-dark"><i class="material-icons ">more_vert</i></div> 
+                                </div> 
+                                </div>
+                                <div class="card-reveal con_sinopsis">
+                                    <span class="card-title grey-text text-darken-4 text"><i class="material-icons right">close</i></span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                                </div>
+                            </div>    
+                        </div>
+                    </li>
+                    {% endfor %}
+                </div>
+            </ul>
+        </div>
+    <div>
+{% endblock %}
+     

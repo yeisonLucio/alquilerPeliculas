@@ -5,30 +5,38 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/estilos.css') }}" rel="stylesheet" />
-         <link href="{{ asset('https://fonts.googleapis.com/icon?family=Material+Icons') }}" rel="stylesheet" />
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-    
+
       <header>
-      
         <nav>
-          <div class="nav-wrapper teal darken-3">
-            <a href="#" class="brand-logo">Logo</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li class="li_peliculas"><a href="#peliculas">Peliculas</a></li>
-              <li class="li_login"><a href="#login">Login</a></li>
-              
+          <div class="nav-wrapper teal darken-4">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li class="inicio" ><a href="#inicio">Inicio</a></li>
+              <li class="peliculas" ><a href="#peliculas">Peliculas</a></li>
+              <li class="series" ><a href="#series">Series</a></li>
+              <li class="registro" ><a href="#registro">Registrarse</a></li>
+              <li class="login" ><a href="#login">Entrar</a></li>
             </ul>
           </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
-          <li class="li_peliculas"><a href="#pelicula">Peliculas</a></li>
-          <li class="li_login"><a href="#login">Login</a></li>
-        </ul>
+        <!--lista del slide movil-->
+        <ul id="slide-out" class="sidenav">
+          <li class="inicio" ><a href="#inicio">Inicio<i class=" Tiny material-icons">home</i></a></li>
+          <li class="peliculas" ><a href="#peliculas">Peliculas<i class=" Tiny material-icons">movie</i></a></li>
+          <li class="series" ><a href="#series">Series<i class=" Tiny material-icons">playlist_play</i></a></li>
+          <li class="registro" ><a href="#registro">Registrarse<i class=" Tiny material-icons">person_add</i></a></li>
+          <li class="login" ><a href="#login">Entrar<i class=" Tiny material-icons">account_box</i></a></li>
+        </ul>     
       </header>
+     
+
       <main id="contenedor">
 
       {% block main %}{% endblock %}

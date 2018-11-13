@@ -9,6 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * pelicula controller.
+ *
+ * @Route("usuario")
+ */
 class usuarioController extends Controller
 {
    /**

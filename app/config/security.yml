@@ -24,12 +24,12 @@ security:
             anonymous: ~
             provider: usuarios_bd
             form_login:
-                login_path: /login
-                check_path: /login
-                default_target_path: /pelicula
+                login_path: /usuario/login
+                check_path: /usuario/login
+                default_target_path: /
 
             logout:
-                path: /logout
+                path: /usuario/logout
                 target: /
             # activate different ways to authenticate
 

@@ -43,3 +43,10 @@
 .con_sinopsis{
     padding: 12px !important;
 }
+
+#contenedor_form{
+    margin-top: 60px;
+    padding: 10px 20px 50px 20px;
+    border-radius: 10px;
+    
+}

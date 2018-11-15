@@ -22,7 +22,7 @@ $(function(){
 
   $('.registro').click(function(){
     console.log("voy a cargar la vista registro");
-    $("#contenedor").load('usuario/registro #contenedor_registro');
+    $("#contenedor").load('/usuario/registro #contenedor_registro');
     
   });
 
@@ -32,7 +32,6 @@ $(function(){
     
   });
   
-  
 });
 
 function ingresarPelicula($id){
@@ -40,3 +39,4 @@ function ingresarPelicula($id){
   $("#contenedor").load('/pelicula/'+$id+' #contenidoPelicula');
   console.log("ingresar pelicula2");
 }
+

@@ -63,11 +63,12 @@ class usuarioController extends Controller
         // contruyendo el formulario
         $usuario = new usuario();
         $form = $this->createForm('AppBundle\Form\usuarioType', $usuario);
-
+        
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
+        
         if ($form->isSubmitted() && $form->isValid()) {
-
+            var_dump($request); exit();
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $passwordEncoder->encodePassword($usuario, $usuario->getPlainPassword());
             $usuario->setPassword($password);
@@ -80,7 +81,7 @@ class usuarioController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('replace_with_some_route');
+            //return $this->redirectToRoute('replace_with_some_route');
         }
 
         return $this->render(

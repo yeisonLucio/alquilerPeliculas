@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 /**
  * pelicula controller.
@@ -19,7 +21,7 @@ class usuarioController extends Controller
    /**
      *
      * @Route("/usuarios", name="usuarios")
-     * 
+     *
      */
     public function usuariosAction()
     {
@@ -53,7 +55,7 @@ class usuarioController extends Controller
     {
 
     }
-    
+
 
     /**
      * @Route("/registro", name="registro_usuario")
@@ -63,27 +65,27 @@ class usuarioController extends Controller
         // contruyendo el formulario
         $usuario = new usuario();
         $form = $this->createForm('AppBundle\Form\registrarUsuarioType', $usuario);
-        
+
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($request); exit();
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($usuario, $usuario->getPlainPassword());
-            $usuario->setPassword($password);
+        if($request->isXmlHttpRequest()){
+          if ($form->isValid()) {
+              // 3) Encode the password (you could also do this via Doctrine listener)
+              $password = $passwordEncoder->encodePassword($usuario, $usuario->getPlainPassword());
+              $usuario->setPassword($password);
 
-            // 4) Guardando el usuario
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($usuario);
-            $entityManager->flush();
+              // 4) Guardando el usuario
+              $entityManager = $this->getDoctrine()->getManager();
+              $entityManager->persist($usuario);
+              $entityManager->flush();
 
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
+              // ... do any other work - like sending them an email, etc
+              // maybe set a "flash" success message for the user
+               return new JsonResponse(array('status'=>200, 'usuarioRegistrado'=> $usuario->getId()));
+              //return $this->redirectToRoute('replace_with_some_route');
+          }
 
-            //return $this->redirectToRoute('replace_with_some_route');
         }
-
         return $this->render(
             'usuario/registro.html.twig',
             array('form' => $form->createView())

@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class usuarioType extends AbstractType
+class registrarUsuarioType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -31,9 +31,10 @@ class usuarioType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\usuario'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\usuario',
+            'attr' => ['id' => 'formRegistroUsuario']
+        ]);
     }
 
     /**

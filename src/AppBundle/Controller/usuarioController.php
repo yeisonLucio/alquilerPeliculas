@@ -62,7 +62,7 @@ class usuarioController extends Controller
     {
         // contruyendo el formulario
         $usuario = new usuario();
-        $form = $this->createForm('AppBundle\Form\usuarioType', $usuario);
+        $form = $this->createForm('AppBundle\Form\registrarUsuarioType', $usuario);
         
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);

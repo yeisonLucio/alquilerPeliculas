@@ -12,8 +12,10 @@
             {{ form_start(form) }}
                 <div class="input-field">
                   {{ form_label(form.username) }}
-                  {{ form_errors(form.username) }}
                   {{ form_widget(form.username) }}
+                  <div id="errorUsername">
+                  {{ form_errors(form.username) }}
+                  </div>
                 </div>
                 <div class="input-field">
                   {{ form_label(form.email) }}
@@ -32,6 +34,7 @@
                 </div>
                 <button id="btn_registrarUsuario" class="btn teal darken-4 waves-effect waves-light" type="submit">Registrar</button>
             {{ form_end(form)}}
+            <div id="resultado"><div>
           </div>  
         </div>  
         <div class="col l4"></div> 

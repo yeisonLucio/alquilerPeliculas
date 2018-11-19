@@ -34,12 +34,9 @@ $(function(){
   });
 
   $("#contenedor").on("click","#btn_registrarUsuario",function(e){
-
-
     registrarUsuario("usuario/registro");
-
-
-
+  
+    
 
   });
 
@@ -61,7 +58,16 @@ function registrarUsuario($url){
     url: $url,
     data: data,
     success: function(resultado){
+      console.log(resultado);
+      $.each(resultado, function(key,value){
+        M.toast({html: ""+value, classes: "red darken-3 white-text"});
+        
+      });
       
+      
+      
+
+     
     }
     });
   });

@@ -5,10 +5,12 @@ use AppBundle\Form\usuarioType;
 use AppBundle\Entity\usuario;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\FormInterface;
 
 
 /**
@@ -69,7 +71,9 @@ class usuarioController extends Controller
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if($request->isXmlHttpRequest()){
-          if ($form->isValid()) {
+            $status = "";
+            
+          if ($form->isSubmitted() && $form->isValid()) {
               // 3) Encode the password (you could also do this via Doctrine listener)
               $password = $passwordEncoder->encodePassword($usuario, $usuario->getPlainPassword());
               $usuario->setPassword($password);
@@ -78,17 +82,35 @@ class usuarioController extends Controller
               $entityManager = $this->getDoctrine()->getManager();
               $entityManager->persist($usuario);
               $entityManager->flush();
+              $status = 200;
 
               // ... do any other work - like sending them an email, etc
               // maybe set a "flash" success message for the user
-               return new JsonResponse(array('status'=>200, 'usuarioRegistrado'=> $usuario->getId()));
+               return new JsonResponse(array('status' => $status, 'usuarioRegistrado'=> $usuario->getId()));
               //return $this->redirectToRoute('replace_with_some_route');
-          }
+          }else if ($form->isSubmitted() && !$form->isValid()){
+            $errors = [];
+            $status = 400;
+            $validator = $this->get('validator');
+            $errorsValidator = $validator->validate($usuario);
 
+            foreach ($errorsValidator as $error) {
+                $valor = $error->getPropertyPath();
+                $errors += ["$valor" => $error->getMessage()];
+                
+            }
+
+            return new JsonResponse($errors);    
+            
+          }
         }
         return $this->render(
             'usuario/registro.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    public function validarForm(FormInterface $form){
+        
     }
 }

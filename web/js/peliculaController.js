@@ -35,24 +35,9 @@ $(function(){
 
   $("#contenedor").on("submit","#formRegistroUsuario",function(e){
     e.preventDefault();
+    $("#preload").addClass("active");
     var data = $(this).serialize();
-    $.ajax({
-    type: "POST",
-    url: "usuario/registro",
-    data: data,
-    success: function(resultado){
-      console.log(resultado);
-      $.each(resultado, function(key,value){
-        M.toast({html: ""+value, classes: "red darken-3 white-text"});
-
-      });
-    }
-  });
-
-//    registrarUsuario(");
-
-
-
+    registrar("/usuario/registro",data);
   });
 
 });
@@ -64,15 +49,19 @@ function ingresarPelicula($id){
   console.log("ingresar pelicula2");
 }
 
-// function registrarUsuario($url){
-//   $( "").(function(e) {
-//     e.preventDefault();
-//
-//
-//
-//
-//
-//
-//     }
-//     });
-//   });
+function registrar($url,$data){
+
+  $.ajax({
+    type: "POST",
+    url: $url,
+    data: $data,
+    success: function(resultado){
+      $.each(resultado, function(key,value){
+        $("#preload").removeClass("active");
+        var alert="<div><span><i class='small material-icons right'>error</i>"+value+"</span></div>"
+        M.toast({html: alert, classes: "red darken-4 white-text"});
+
+      });
+    }
+  });
+}

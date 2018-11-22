@@ -32,7 +32,25 @@
                   {{ form_errors(form.plainPassword.second) }}
                   {{ form_widget(form.plainPassword.second) }}
                 </div>
-                <button id="btn_registrarUsuario" class="btn teal darken-4 waves-effect waves-light" type="submit">Registrar</button>
+                <div class="preloadCont row">
+                  <div class="col l6">
+                    <button id="btn_registrarUsuario" class="btn teal darken-4 waves-effect waves-light" type="submit">Registrar</button>
+                  </div>
+                  <div class="col l6">
+                    <div id="preload" class="preloader-wrapper small">
+                      <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                          <div class="circle"></div>
+                        </div><div class="gap-patch">
+                          <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
             {{ form_end(form)}}
             <div id="resultado"><div>
           </div>  

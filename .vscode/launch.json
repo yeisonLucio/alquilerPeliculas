@@ -6,18 +6,25 @@
     "configurations": [
 
         {
-            "name": "Listen for XDebug",
+            "name": "XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9000
+            "port": 9000,
+            "cwd": "${workspaceFolder}",
+            "ignore": [
+                "**/vendor/**/*.php"
+            ]
+        
+
         },
+
         {
             "name": "Launch currently open script",
             "type": "php",
             "request": "launch",
             "program": "${file}",
-            "cwd": "${fileDirname}",
-            "port": 8000
+            "cwd": "/home/lucio/Documentos/symfony3.4/alquilerPeliculas/web",
+            "port": 9000
         }
     ]
 }

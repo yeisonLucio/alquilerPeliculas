@@ -91,6 +91,7 @@ class usuarioController extends Controller
           }else if ($form->isSubmitted() && !$form->isValid()){
             $errors = [];
             $status = 400;
+            
             $validator = $this->get('validator');
             $errorsValidator = $validator->validate($usuario);
 
@@ -101,7 +102,7 @@ class usuarioController extends Controller
             }
 
             return new JsonResponse($errors);    
-            
+         
           }
         }
         return $this->render(

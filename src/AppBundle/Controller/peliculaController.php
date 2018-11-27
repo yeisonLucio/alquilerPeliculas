@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * pelicula controller.
  *
- * @Route("pelicula")
+ 
  */
 class peliculaController extends Controller
 {
@@ -20,7 +20,7 @@ class peliculaController extends Controller
      * Lists all pelicula entities.
      *
      * @Route("/listaPeliculas", name="listaPeliculas")
-     * @Method({"GET", "POST"})
+     * 
      */
     public function indexAction()
     {        

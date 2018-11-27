@@ -10,7 +10,8 @@ $(function(){
 
   $('.peliculas').click(function(){
     console.log("voy a cargar la vista pelicula");
-    $("#contenedor").load('pelicula/listaPeliculas #contenedor_pelicula');
+    var ruta = "{{ path('listaPeliculas') }} ";
+    $("#contenedor").load("{{ path('listaPeliculas') }} ");
 
 
   });

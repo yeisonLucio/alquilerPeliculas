@@ -44,11 +44,15 @@
       <footer>
       </footer>
 
-
+          
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/materialize.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('js/peliculaController.js')}}"></script>
+        <script src="{{ asset('build/app.js')}}"></script>
+        {% block javascripts %}
+          <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
+          <script type="text/javascript" src="{{ asset('js/materialize.min.js')}}"></script>
+          <script type="text/javascript" src="{{ asset('js/peliculaController.js')}}"></script>
+ 
+        {% endblock %}
+        
     </body>
 </html>

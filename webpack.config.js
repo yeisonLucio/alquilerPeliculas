@@ -1,27 +1,22 @@
 var Encore = require('@symfony/webpack-encore');
+const { VueLoaderPlugin } = require('vue-loader');
 
 Encore
-    .setOutputPath('public/build/')
+    .setOutputPath('public/build')
 
     .setPublicPath('/build')
     
-    .addEntry('app', './assets/js/app.js')
+    .addEntry('app', './web/vue/app.js')
     
     .enableSingleRuntimeChunk()
 
     .cleanupOutputBeforeBuild()
-    //.enableSourceMaps(!Encore.isProduction())
+
+    .addPlugin(new VueLoaderPlugin())
+
+    .enableVueLoader()
+
     
-    //.enableVersioning(Encore.isProduction())
-    enableVueLoader()
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
-    // uncomment if you use Sass/SCSS files
-    //.enableSassLoader()
-
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();
